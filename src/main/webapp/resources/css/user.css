@@ -1,0 +1,60 @@
+.user-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #1e1e1e;
+  color: #eee;  /* 👈 기본 글자색 추가 */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-container h2 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.user-container label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+
+.user-container input {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
+  border: 1px solid #444;
+  color: #eee;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.user-container input:focus {
+  border-color: #666;
+  outline: none;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 16px;
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #444;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #555;
+}

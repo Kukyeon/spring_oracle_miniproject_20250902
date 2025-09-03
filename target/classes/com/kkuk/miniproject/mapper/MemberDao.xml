@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    
+    <mapper namespace="com.kkuk.miniproject.dao.MemberDao">
+    
+    
+    <resultMap type="com.kkuk.miniproject.dto.MemberDto" id="MemberWithOrder">
+    	<id property="memberid" column="memberid" />
+    	<result property="meebernum" column="membernum" />
+    	<result property="memberpw" column="memberpw" />
+    	<result property="membername" column="membername" />
+    	<result property="memberdate" column="memberdate" />
+    	
+    	<association property="orderDto" javaType="com.kkuk.miniproject.dto.OrderDto">
+    	<id property="orderid" column="orderid" />
+    	<result property="ordername" column="ordername" />
+    	<result property="userid" column="userid" />
+    	<result property="orderdate" column="orderdate" />
+    	<result property="orderprice" column="orderprice" />
+    	<result property="orderquantity" column="orderquantity" />
+    	</association>
+    </resultMap>
+    
+    
+    
+    <insert id="memberjoinDao">
+    	INSERT INTO membertbl(membernum, memberid, memberpw, membername) VALUES(MEMBER_SEQ.nextval, #{param1}, #{param2}, #{param3})
+    </insert>
+    
+    <select id="memberidcheckDao" resultType="int">
+    	SELECT COUNT(*) FROM membertbl WHERE memberid = #{param1}
+    </select>
+    
+    <select id="memberloginDao" resultType="int">
+    	SELECT COUNT(*) FROM membertbl WHERE memberid = #{param1} AND memberpw = #{param2}
+    </select>
+    
+    <update id="updatememberDao">
+    	UPDATE membertbl SET memberpw = #{param2}, membername = #{param3} WHERE memberid = #{param1}
+    </update>
+    
+    <select id="memberinfoDao" resultType="com.kkuk.miniproject.dto.MemberDto">
+      SELECT * 
+    	FROM membertbl 
+       WHERE memberid = #{param1}
+    </select>
+    
+    <select id="orderlistDao" resultType="com.kkuk.miniproject.dto.OrderDto">
+	   SELECT o.orderid, o.ordername, m.membername, o.orderdate ,o.orderquantity, o.orderprice 
+	     FROM membertbl m 
+   INNER JOIN ordertbl o 
+		   ON m.memberid = o.userid
+		WHERE m.memberid = #{param1}
+		ORDER BY o.orderid DESC
+    </select>
+    
+    <insert id="updateorderDao">
+    	INSERT INTO ordertbl 
+    	VALUES (order_seq.nextval , #{param1}, #{param2}, sysdate ,#{param3}, #{param4})
+    </insert>
+    
+    </mapper>

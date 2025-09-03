@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/* 주문하기 전체 컨테이너 */
+.order-form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #1e1e1e;
+  color: #eee;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 제목 */
+.order-form-container h2 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+/* 라벨 */
+.order-form-container label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+
+/* 인풋 및 셀렉트 공통 스타일 */
+.order-form-container input,
+.order-form-container select {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
+  border: 1px solid #444;
+  color: #eee;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* 포커스 시 */
+.order-form-container input:focus,
+.order-form-container select:focus {
+  border-color: #666;
+  outline: none;
+}
+
+/* 버튼 그룹 */
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* 버튼 스타일 */
+.btn {
+  flex: 1;
+  padding: 10px 16px;
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #444;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* 주문 폼 레이아웃 */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+/* 라벨 스타일 */
+form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #eee;
+}
+
+/* 인풋, 셀렉트 박스 스타일 */
+form input[type="text"],
+form input[type="number"],
+form select {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #eee;
+  font-size: 1rem;
+}
+
+/* 버튼 그룹 스타일 */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* 버튼 스타일 */
+.btn {
+  flex: 1;
+  padding: 10px 0;
+  background-color: #3a3a3a;
+  border: none;
+  border-radius: 5px;
+  color: #eee;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+

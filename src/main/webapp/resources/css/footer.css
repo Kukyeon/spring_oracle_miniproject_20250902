@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* footer.css */
+
+.footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 40px;
+  border-top: 1px solid #222;
+}
