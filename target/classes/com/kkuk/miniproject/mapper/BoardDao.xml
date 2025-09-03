@@ -37,31 +37,42 @@
 </select>
 
 <select id="BoardCountDao" resultType="int">
-	SELECT COUNT(*) FROM boardtbl
+	SELECT COUNT(*) 
+	FROM boardtbl
 </select>
 
 <update id="boardprocessDao">
-	UPDATE boardtbl SET btitle =#{param2}, bcontent = #{param3} WHERE bnum = #{param1}
+	UPDATE boardtbl 
+	SET btitle =#{param2}, bcontent = #{param3} 
+	WHERE bnum = #{param1}
 </update>
 
 <select id="boardviewDao" resultType="com.kkuk.miniproject.dto.BoardDto">
-	SELECT * FROM boardtbl WHERE bnum = #{param1}
+	SELECT * 
+	FROM boardtbl 
+	WHERE bnum = #{param1}
 </select>
 
 <select id="boardEditDao" resultType="com.kkuk.miniproject.dto.BoardDto">
-	SELECT * FROM boardtbl WHERE bnum = #{param1}
+	SELECT * 
+	FROM boardtbl 
+	WHERE bnum = #{param1}
 </select>
 
 <update id="updateviewDao">
-	UPDATE boardtbl SET bhit=bhit+1 WHERE bnum = #{parma1}
+	UPDATE boardtbl 
+	SET bhit=bhit+1 
+	WHERE bnum = #{parma1}
 </update>
 
 <insert id="WriteDao">
-	INSERT INTO boardtbl(bnum, btitle, bcontent, bwriter, bhit) VALUES (board_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
+	INSERT INTO boardtbl(bnum, btitle, bcontent, bwriter, bhit) 
+	VALUES (board_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
 </insert>
 
 <delete id="boardDeleteDao">
-	DELETE FROM boardtbl WHERE bnum = #{param1}
+	DELETE FROM boardtbl 
+	WHERE bnum = #{param1}
 </delete>
 </mapper>
     

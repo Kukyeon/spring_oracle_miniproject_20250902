@@ -27,19 +27,27 @@
     
     
     <insert id="memberjoinDao">
-    	INSERT INTO membertbl(membernum, memberid, memberpw, membername) VALUES(MEMBER_SEQ.nextval, #{param1}, #{param2}, #{param3})
+    	INSERT INTO membertbl(membernum, memberid, memberpw, membername) 
+    	VALUES(MEMBER_SEQ.nextval, #{param1}, #{param2}, #{param3})
     </insert>
     
     <select id="memberidcheckDao" resultType="int">
-    	SELECT COUNT(*) FROM membertbl WHERE memberid = #{param1}
+    	SELECT COUNT(*) 
+    	FROM membertbl 
+    	WHERE memberid = #{param1}
     </select>
     
     <select id="memberloginDao" resultType="int">
-    	SELECT COUNT(*) FROM membertbl WHERE memberid = #{param1} AND memberpw = #{param2}
+    	SELECT COUNT(*) 
+    	FROM membertbl 
+    	WHERE memberid = #{param1} 
+    	AND memberpw = #{param2}
     </select>
     
     <update id="updatememberDao">
-    	UPDATE membertbl SET memberpw = #{param2}, membername = #{param3} WHERE memberid = #{param1}
+    	UPDATE membertbl 
+    	SET memberpw = #{param2}, membername = #{param3} 
+    	WHERE memberid = #{param1}
     </update>
     
     <select id="memberinfoDao" resultType="com.kkuk.miniproject.dto.MemberDto">
@@ -63,10 +71,12 @@
     </insert>
     
     <delete id="deleteuserDao">
-    	DELETE FROM membertbl WHERE memberid = #{param1}
+    	DELETE FROM membertbl 
+    	WHERE memberid = #{param1}
     </delete>
     
     <delete id="deleteorderlistDao">
-    	DELETE FROM ordertbl WHERE orderid = #{param1}
+    	DELETE FROM ordertbl 
+    	WHERE orderid = #{param1}
     </delete>
     </mapper>
