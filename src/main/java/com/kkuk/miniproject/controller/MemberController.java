@@ -218,6 +218,34 @@ public class MemberController {
 	        model.addAttribute("url", "userinfo");
 	        return "alert/alert";
 		}
+	}
+	@RequestMapping(value = "orderDelete")
+	public String orderDelete(HttpServletRequest request, Model model, HttpSession session) {
+		String sessionId = (String) session.getAttribute("sessionId");
+		if(sessionId == null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+            model.addAttribute("url", "login");
+            return "alert/alert";
+		}
 		
+		String oid = request.getParameter("orderid");
+		
+		try {
+			int orderid = Integer.parseInt(oid);
+			MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+			int result = memberDao.deleteorderlistDao(orderid);
+			
+			if(result > 0) {
+				model.addAttribute("msg", "주문목록이 삭제되었습니다.");
+	         }else {
+	        	 model.addAttribute("msg", "주문목록 삭제실패 다시 확인해주세요.");
+	         }
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("msg", "잘못된 요청입니다.");
+		}
+		model.addAttribute("url", "orderlist");
+		return "alert/alert";
 	}
 }

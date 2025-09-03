@@ -25,6 +25,7 @@
           <th>주문일</th>
           <th>수량</th>
           <th>가격(원)</th>
+          <th>삭제</th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +40,12 @@
             <td><fmt:formatDate value="${order.orderdate}" pattern="yyyy-MM-dd" /></td>
             <td>${order.orderquantity}</td>
             <td><fmt:formatNumber value="${order.orderprice}" type="currency" currencySymbol="" groupingUsed="true" /></td>
+ 			 <td>
+              <form action="orderDelete" method="post" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                <input type="hidden" name="orderid" value="${order.orderid}" />
+                <input type="submit" value="삭제" />
+              </form>
+            </td>         
           </tr>
           <c:set var="totalQty" value="${totalQty + order.orderquantity}" />
           <c:set var="totalPrice" value="${totalPrice + order.orderprice}" />

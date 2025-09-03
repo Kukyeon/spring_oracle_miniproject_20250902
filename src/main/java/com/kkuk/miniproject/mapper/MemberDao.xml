@@ -65,4 +65,8 @@
     <delete id="deleteuserDao">
     	DELETE FROM membertbl WHERE memberid = #{param1}
     </delete>
+    
+    <delete id="deleteorderlistDao">
+    	DELETE FROM ordertbl WHERE orderid = #{param1}
+    </delete>
     </mapper>
