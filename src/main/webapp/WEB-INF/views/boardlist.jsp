@@ -46,7 +46,7 @@
           <td><a href="boardview?bnum=${blist.bnum}">${blist.btitle}</a></td>
           <td>${blist.memberDto.membername}</td>
           <td>${blist.bhit}</td>
-          <td>${blist.bdate}</td>
+          <td><fmt:formatDate value="${blist.bdate}" pattern="yyyy-MM-dd" /></td>
         </tr>
         </c:forEach>
         <!-- 반복 출력 -->

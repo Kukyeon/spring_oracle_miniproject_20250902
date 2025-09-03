@@ -14,5 +14,5 @@ public interface MemberDao {
 	public MemberDto memberinfoDao(String memberid);
 	public List<OrderDto> orderlistDao(String memberid);
 	public int updateorderDao(String ordername, String userid, int orderprice, int orderquantity);
-		
+	public int deleteuserDao(String memberid);	
 }

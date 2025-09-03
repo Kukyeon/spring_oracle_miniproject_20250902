@@ -196,4 +196,28 @@ public class MemberController {
 		model.addAttribute("orderList", orderDtos);
 		return "orderlist";
 	}
+	
+	@RequestMapping(value = "/userdelete")
+	public String userdelete(HttpServletRequest request, Model model, HttpSession session) {
+		String sessionId = (String) session.getAttribute("sessionId");
+		if(sessionId == null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+            model.addAttribute("url", "login");
+            return "alert/alert";
+		}
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		int result = memberDao.deleteuserDao(sessionId);
+		if(result > 0) {
+			session.invalidate();
+			model.addAttribute("msg", "회원탈퇴가 완료되었습니다.");
+	        model.addAttribute("url", "login");
+	        return "alert/alert";
+		}else {
+			model.addAttribute("msg", "회원탈퇴가 실패했습니다. 다시한번 확인해주세요.");
+	        model.addAttribute("url", "userinfo");
+	        return "alert/alert";
+		}
+		
+	}
 }
